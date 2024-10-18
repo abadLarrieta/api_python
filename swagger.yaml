@@ -1,0 +1,27 @@
+swagger: "2.0"
+info:
+  description: "API que consume posts desde un endpoint externo."
+  version: "1.0.0"
+  title: "Posts API"
+basePath: "/"
+schemes:
+  - "http"
+paths:
+  /data:
+    get:
+      summary: "Obtiene posts con un filtro opcional por título"
+      parameters:
+        - name: "title"
+          in: "query"
+          description: "Filtra los posts por título"
+          required: false
+          type: "string"
+      responses:
+        200:
+          description: "Lista de posts"
+          schema:
+            type: "array"
+            items:
+              type: "object"
+        500:
+          description: "Error al obtener los datos"
